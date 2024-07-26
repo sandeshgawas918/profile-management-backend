@@ -30,9 +30,7 @@ router.put('/updateUser/:id', upload.single('icon'), async (req, res) => {
         fs.unlinkSync(imagePath)
     }
     else {
-        console.log("file not selected", req.file);
         const currentUser = await User.findOne({ _id: id })
-        console.log(`my user is -> ${currentUser.icon}`,);
         const userBEforeUpdate = await User.findOneAndUpdate({ _id: id },
             {
                 name: req.body.name,
