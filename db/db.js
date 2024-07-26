@@ -1,11 +1,12 @@
-const mongoose=require('mongoose')
+const mongoose = require('mongoose');
+const DatabaseName = 'profilemanagement'
 
-const connectDB=async()=>{
+const connectDB = async () => {
     try {
-        await mongoose.connect(`${process.env.MONGO_DB}/profilemanagement`)
+        await mongoose.connect(`${process.env.MONGO_DB}/${DatabaseName}`)
     } catch (error) {
-        console.log('error on db.js =>',error);
+        console.log('error on db.js file =>', error);
     }
 }
 
-module.exports=connectDB
+module.exports = connectDB
