@@ -15,13 +15,9 @@ router.post('/register', upload.single('icon'), async (req, res) => {
         if (req.file) {
             const imagePath = req.file.path
 
-            console.log(imagePath)
-
             const uploadedImg = await cloudinary.uploader.upload(imagePath, {
                 folder: "profile_management_prod"
             })
-
-            console.log(uploadedImg)
 
             const myUser = await User.create({
                 name: req.body.name,

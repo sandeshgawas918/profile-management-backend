@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../models/UserModel.js')
 const upload = require('../middleware/multer.js')
 const cloudinary = require('../utils/cloudinary.js')
+const fs=require('fs')
 
 router.put('/updateUser/:id', upload.single('icon'), async (req, res) => {
     const { id } = req.params
