@@ -9,14 +9,11 @@ router.put('/updateUser/:id', upload.single('icon'), async (req, res) => {
     const { id } = req.params
     if (req.file) {
         const imagePath = req.file.path
-        console.log(imagePath);
         console.log(id);
 
         const editedImage = await cloudinary.uploader.upload(imagePath, {
             folder: 'profile_management_prod'
         })
-
-        console.log(editedImage);
 
         const userBEforeUpdate = await User.findOneAndUpdate({ _id: id },
             {
